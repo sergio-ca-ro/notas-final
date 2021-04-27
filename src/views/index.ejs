@@ -15,7 +15,7 @@
         <div>
           <form action="/tasks" method="post">
             <input type="text" class="form-control" name="title">
-            <button class="btn btn-primary">Enviar</button>
+            <button class="btn btn-primary" type="submit">Enviar</button>
           </form>
         </div>
         <!-- Validacion opcional -->
@@ -31,15 +31,19 @@
       <div class="col">
         <div class="list-group">
           <!-- Task -->
+          <% tasks.forEach(task => { %>
+
+          
           <div class="list-group-item">
-            <a href="/tasks/1">
-              Titulo de la tarea y ruta de la misma, a modo de ejemplo
+            <a href="/tasks/<%= task.id %>">
+              <%= task.task %>
             </a>
 
-            <form action="/tasks/1" method="POST">
-              <button class="btn item-delete">Borrar</button>
+            <form action="/tasks/<%= task.id %>?_method=DELETE" method="POST">
+              <button class="btn item-delete" type="submit">Borrar</button>
             </form>
           </div>
+          <% }) %>
           <!-- Task -->
         </div>
       </div>
