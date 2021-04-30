@@ -21,6 +21,10 @@ let tasksController = {
 
     },
     editar: function(req, res){
+        db.Task.findByPk(req.params.id)
+        .then(function(tasks){
+            res.redirect("/tasks", {tasks:tasks});
+        })
         
     },
     borrar: function(req, res){

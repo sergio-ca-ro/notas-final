@@ -13,10 +13,17 @@
     <div class="row">
       <div class="col d-col w-100">
         <div>
-          <form action="/tasks" method="post">
+          <% if (taskEditar == undefined) { %>
+          <form action="/tasks/" method="POST">
             <input type="text" class="form-control" name="title">
             <button class="btn btn-primary" type="submit">Enviar</button>
           </form>
+          <% }else { %>
+          <form action="/tasks/<%= taskEditar.id %>" method="PATCH">
+            <input type="text" class="form-control" name="title" value="<%= taskEditar.id %>">
+            <button class="btn btn-primary" type="submit">guardar nota</button>
+          </form>
+          <% } %>
         </div>
         <!-- Validacion opcional -->
         <div class="alert">
