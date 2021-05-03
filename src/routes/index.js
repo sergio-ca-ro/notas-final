@@ -7,11 +7,11 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET users listing. */
-router.get('/tasks', tasksController.mostrar);
-router.post('/tasks', tasksController.crear);
+router.post('/tasks/', tasksController.crear);
+router.get('/tasks/', tasksController.mostrar);
 router.patch('/tasks/:id', tasksController.editar);
 router.delete('/tasks/:id', tasksController.borrar);
-router.get('/tasks/:id', tasksController.mostrarTarea);
+router.get('/tasks/:id', tasksController.mostrar);
 
 
 module.exports = router;
