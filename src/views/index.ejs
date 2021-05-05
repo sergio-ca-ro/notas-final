@@ -26,9 +26,12 @@
           <% } %>
         </div>
         <!-- Validacion opcional -->
+
+        <% if ( typeof errors != "undefined") { %>
         <div class="alert">
-          <p class="invalid-text">El texto debe contener al menos 3 caracteres</p>
+          <p class="invalid-text"><%= errors[0].msg %></p>
         </div>
+        <% } %>
         <!-- Validacion opcional -->
 
       </div>

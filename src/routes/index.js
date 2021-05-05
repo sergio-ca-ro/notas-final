@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const tasksValidate = require('../middlewares/tasksValidate');
 var tasksController = require ("../controllers/tasksController");
 
 router.get('/', function(req, res, next) {
@@ -7,6 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET users listing. */
+router.post('/tasks/', tasksValidate, tasksController.crear);
 router.post('/tasks/', tasksController.crear);
 router.get('/tasks/', tasksController.mostrar);
 router.patch('/tasks/:id', tasksController.editar);
