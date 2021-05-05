@@ -16,12 +16,12 @@
           <% if (typeof taskEditar == "undefined") { %>
           <form action="/tasks/" method="POST">
             <input type="text" class="form-control" name="title">
-            <button class="btn btn-primary" type="submit">Enviar</button>
+            <button class="btn btn-primary" type="submit">Crear y guardar</button>
           </form>
           <% }else { %>
           <form action="/tasks/<%= taskEditar.id %>?_method=PATCH" method="POST">
             <input type="text" class="form-control" name="title" value="<%= taskEditar.task %>">
-            <button class="btn btn-primary" type="submit">guardar nota</button>
+            <button class="btn btn-primary" type="submit">Guardar cambios</button>
           </form>
           <% } %>
         </div>
@@ -48,7 +48,7 @@
             </a>
 
             <form action="/tasks/<%= task.id %>?_method=DELETE" method="POST">
-              <button class="btn item-delete" type="submit">Borrar</button>
+              <button class="btn item-delete" type="submit">✖️</button>
             </form>
           </div>
           <% }) %>

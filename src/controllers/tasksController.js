@@ -11,6 +11,8 @@ let tasksController = {
             .then(function(tasks){  
              res.render('index', {errors: errors.errors, tasks: tasks, taskEditar: undefined });
 
+            }).catch(error => {
+                res.send(error)
             })
             
         }else{ 
@@ -20,6 +22,8 @@ let tasksController = {
         .then(()=>{
             res.redirect("/tasks")
         
+        }).catch(error => {
+            res.send(error)
         })
     }
     },
@@ -31,10 +35,14 @@ let tasksController = {
                 db.Task.findByPk(req.params.id)
                 .then(function(taskEditar) {
                     res.render('index', {tasks:tasks, taskEditar:taskEditar});
-                })
+                }).catch(error => {
+                    res.send(error)
+                });
             }else{ 
             res.render('index', {tasks:tasks});
             }
+        }).catch(error => {
+            res.send(error)
         });
     },
     
@@ -49,7 +57,9 @@ let tasksController = {
         })
         .then(()=>{
             res.redirect("/tasks")
-        })
+        }).catch(error => {
+            res.send(error)
+        });
         
     },
     borrar: function(req, res){
@@ -58,7 +68,9 @@ let tasksController = {
         .then(()=>{
              res.redirect("/tasks")
 
-        })
+        }).catch(error => {
+            res.send(error)
+        });
     
     },
    
